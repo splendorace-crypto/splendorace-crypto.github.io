@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eBay Listing Agent</title>
+<meta name="description" content="A private tool its owner uses to prepare and publish their own eBay listings from their own Google Sheets listing sheet.">
+<style>
+  :root { --bg: #ffffff; --fg: #1d1d1f; --muted: #5f6368; --line: #e3e3e3; --accent: #1a5fb4; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #141414; --fg: #ececec; --muted: #a8a8a8; --line: #333; --accent: #8ab4f8; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.7 system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.8rem; margin: 0 0 4px; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; border-top: 1px solid var(--line); padding-top: 20px; }
+  p, li { color: var(--fg); }
+  .muted { color: var(--muted); font-size: .92rem; }
+  a { color: var(--accent); }
+  nav a { margin-right: 16px; }
+</style>
+</head>
+<body>
+<main>
+<nav><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a></nav>
+<h1>eBay Listing Agent</h1>
+<p class="muted">A private tool for the owner's own eBay selling work. It is not a public service and is not offered to other users.</p>
+
+<h2>What it does</h2>
+<p>eBay Listing Agent runs on the owner's own Windows PC. It helps the owner list products on the owner's own eBay seller account:</p>
+<ul>
+  <li>It reads product rows from the owner's own listing spreadsheet in Google Sheets: product title, reference eBay listing, supplier page URL, prices and notes.</li>
+  <li>It checks stock and price on the supplier's public product page, then prepares the eBay title, description, photos and item specifics.</li>
+  <li>It publishes the listing to the owner's eBay account through the eBay API.</li>
+  <li>It writes the result back to the same spreadsheet: assignee name, listing date, SKU, eBay Item ID, status and notes.</li>
+</ul>
+
+<h2>Why it uses Google Sheets</h2>
+<p>The listing work is managed in one Google Sheets spreadsheet that the owner and the owner's staff share. The app uses the Google Sheets API to read the rows to list and to record the results. It opens only that one spreadsheet. A run stops if the spreadsheet's name is not the expected one.</p>
+<ul>
+  <li><code>https://www.googleapis.com/auth/spreadsheets.readonly</code> — to read the listing rows. This is used for checks that must never write.</li>
+  <li><code>https://www.googleapis.com/auth/spreadsheets</code> — to write the result columns of the listing rows. The app never changes formulas or other columns.</li>
+</ul>
+<p>The app does not use Google Drive, Gmail, Calendar or any other Google user data.</p>
+
+<h2>Who can use it</h2>
+<p>Only the owner signs in, with the owner's own Google account. The app has no public sign-up, no website login and no server. Everything runs on the owner's PC.</p>
+
+<h2>Contact</h2>
+<p>splendor.ace@gmail.com</p>
+
+<p class="muted">eBay is a trademark of eBay Inc. This tool is not affiliated with, endorsed by or sponsored by eBay Inc. or Google LLC.<br>
+<a href="privacy.html">Privacy Policy</a> · 日本語の説明は<a href="privacy.html#ja">プライバシーポリシー</a>に記載しています。</p>
+</main>
+</body>
+</html>
